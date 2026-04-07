@@ -579,7 +579,12 @@ const TechEnabledVerification = () => (
 );
 
 const AnnualCycle = () => (
-  <Section subtitle="Workstream 1" title="Annual IVA / APA Cycle" className="bg-primary text-white">
+  <Section
+    subtitle="Workstream 1"
+    title="Annual IVA / APA Cycle"
+    className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white"
+    dark
+  >
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div>
         <div className="space-y-8">
@@ -592,7 +597,7 @@ const AnnualCycle = () => (
             'Scoring & Allocation',
             'Final Reporting'
           ].map((step, i) => (
-            <motion.div 
+            <motion.div
               key={step}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -600,15 +605,15 @@ const AnnualCycle = () => (
               transition={{ delay: i * 0.1 }}
               className="flex items-center gap-6 group"
             >
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:border-accent transition-colors">
+              <div className="w-10 h-10 rounded-full border border-white/30 bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:border-accent transition-colors">
                 <span className="text-sm font-bold">{i + 1}</span>
               </div>
-              <span className="text-xl font-medium text-white/90">{step}</span>
+              <span className="text-xl font-semibold text-white">{step}</span>
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="bg-white/5 rounded-3xl p-12 border border-white/10">
+      <div className="bg-white/10 rounded-3xl p-12 border border-white/20 backdrop-blur-sm shadow-2xl">
         <h3 className="text-2xl font-bold mb-8">Deep-Dive Focus</h3>
         <div className="grid grid-cols-2 gap-6">
           {[
@@ -618,9 +623,9 @@ const AnnualCycle = () => (
             { label: 'Revenue Growth', icon: Calculator },
             { label: 'PPP Transactions', icon: Globe },
           ].map(item => (
-            <div key={item.label} className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col items-center text-center gap-3">
+            <div key={item.label} className="p-4 rounded-2xl bg-white/15 border border-white/20 flex flex-col items-center text-center gap-3">
               <item.icon className="text-accent w-8 h-8" />
-              <span className="text-sm font-medium">{item.label}</span>
+              <span className="text-sm font-semibold text-white">{item.label}</span>
             </div>
           ))}
         </div>
