@@ -1,0 +1,283 @@
+import { City, DLI, Step, TeamMember, Instrument, Output, TorComplianceItem } from './types';
+
+export const CITIES: City[] = [
+  { name: 'Ahmedpur East' },
+  { name: 'Arifwala' },
+  { name: 'Chakwal', isPPPFocus: true, relevance: 'PPP Focus City' },
+  { name: 'Chiniot' },
+  { name: 'Chishtian' },
+  { name: 'Haroonabad' },
+  { name: 'Jampur' },
+  { name: 'Jatoi' },
+  { name: 'Kasur', isPPPFocus: true, relevance: 'PPP Focus City' },
+  { name: 'Khanpur' },
+  { name: 'Mandi Bahauddin' },
+  { name: 'Pakpattan' },
+  { name: 'Rajanpur' },
+  { name: 'Sadiqabad' },
+  { name: 'Samundri' },
+  { name: 'Shujabad' },
+];
+
+export const DLIS: DLI[] = [
+  {
+    id: 1,
+    title: 'DLI 1: Safely managed water and sanitation connections',
+    description: 'Verification of new and existing connections meeting safely managed standards in eligible ULGs.',
+    evidence: ['ULG Connection Registers', 'Water Quality Test Reports', 'Physical Asset Verification', 'Household Surveys'],
+    fieldValidation: true,
+    output: 'Verified Connection Count & Compliance Report',
+    roles: ['Infrastructure Specialist', 'Social Development Specialist'],
+  },
+  {
+    id: 2,
+    title: 'DLI 2: Improved performance of solid waste management systems',
+    description: 'Assessment of SWM collection efficiency, disposal standards, and operational performance.',
+    evidence: ['SWM Operational Logs', 'Disposal Site Inspection Reports', 'Equipment Maintenance Records', 'MIS Data'],
+    fieldValidation: true,
+    output: 'SWM Performance Scorecard',
+    roles: ['Infrastructure Specialist', 'Environment Specialist'],
+  },
+  {
+    id: 3,
+    title: 'DLI 3: Minimum Access Conditions (MAC) for WSS service delivery',
+    description: 'Ensuring participating ULGs (excluding PPP cities) meet baseline institutional and operational conditions.',
+    evidence: ['Institutional Records', 'Budget Allocations', 'Staffing Status', 'Operational Manuals'],
+    fieldValidation: false,
+    output: 'MAC Compliance Certificate',
+    roles: ['Institutional Strengthening Specialist', 'Infrastructure Specialist'],
+  },
+  {
+    id: 4,
+    title: 'DLI 4: Improved scores on Institutional Performance Indicators',
+    description: 'Measuring progress on governance, financial management, and service delivery indicators.',
+    evidence: ['Performance Assessment Matrices', 'Internal Audit Reports', 'Governance Documents', 'Citizen Feedback'],
+    fieldValidation: true,
+    output: 'Institutional Performance Report',
+    roles: ['Institutional Strengthening Specialist', 'Finance Specialist'],
+  },
+  {
+    id: 5,
+    title: 'DLI 5: Increased revenues from taxes, fees, and tariffs',
+    description: 'Verification of revenue growth compared to FY 2023–24 baseline.',
+    evidence: ['Audited Financial Statements', 'Revenue Collection Records', 'Tax Registers', 'Bank Reconciliation'],
+    fieldValidation: false,
+    output: 'Revenue Validation Report',
+    roles: ['Finance & Account Specialist'],
+  },
+  {
+    id: 6,
+    title: 'DLI 6: PPP transactions processed in the WSS sector',
+    description: 'Verification of PPP transaction milestones in Chakwal and Kasur.',
+    evidence: ['PPP Contract Documents', 'Transaction Milestone Reports', 'Procurement Records', 'Legal Agreements'],
+    fieldValidation: false,
+    output: 'PPP Transaction Verification Report',
+    roles: ['Infrastructure Specialist', 'Finance Specialist'],
+  },
+];
+
+export const METHODOLOGY_STEPS: Step[] = [
+  {
+    title: 'Mobilization',
+    description: 'Team deployment, logistics setup, and initial stakeholder engagement.',
+    details: ['Resource allocation', 'Logistics planning', 'Kick-off meetings'],
+  },
+  {
+    title: 'Inception & Tool Finalization',
+    description: 'Refining verification instruments and finalizing the methodology report.',
+    details: ['Instrument design', 'Pilot testing', 'Inception report submission'],
+  },
+  {
+    title: 'Desk Review',
+    description: 'Analysis of secondary data, ULG records, and PMDFC dashboard outputs.',
+    details: ['Document collection', 'Initial data screening', 'Gap analysis'],
+  },
+  {
+    title: 'Data Collection',
+    description: 'Primary data gathering through field teams and mobile-based tools.',
+    details: ['Field surveys', 'Stakeholder interviews', 'Asset mapping'],
+  },
+  {
+    title: 'Validation & Reconciliation',
+    description: 'Cross-checking field data with documentary evidence and MIS records.',
+    details: ['Triangulation', 'Discrepancy resolution', 'Data cleaning'],
+  },
+  {
+    title: 'Field Verification',
+    description: 'Physical inspection and spot-checks of infrastructure and services.',
+    details: ['Site visits', 'Water quality testing', 'Physical asset count'],
+  },
+  {
+    title: 'MAC / PM Scoring',
+    description: 'Applying indicators to assess compliance and performance levels.',
+    details: ['Scoring matrix application', 'Evidence mapping', 'Preliminary scoring'],
+  },
+  {
+    title: 'Draft Reporting',
+    description: 'Compilation of findings into a comprehensive draft verification report.',
+    details: ['Internal review', 'Drafting', 'Client feedback loop'],
+  },
+  {
+    title: 'QA and Review',
+    description: 'Rigorous internal quality control and specialist validation.',
+    details: ['Peer review', 'Senior management sign-off', 'QA checklist completion'],
+  },
+  {
+    title: 'Final Reporting',
+    description: 'Submission of the final audited verification and monitoring reports.',
+    details: ['Finalization', 'Formal submission', 'Presentation of findings'],
+  },
+  {
+    title: 'Corrective Action Tracking',
+    description: 'Monitoring the implementation of recommendations and improvements.',
+    details: ['Follow-up visits', 'Compliance tracking', 'Progress reporting'],
+  },
+];
+
+export const TEAM: TeamMember[] = [
+  {
+    role: 'Team Leader / M&E Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Overall project oversight, methodology design, and quality assurance.',
+    responsibilities: ['Strategic direction', 'Final report sign-off', 'Client liaison'],
+  },
+  {
+    role: 'Infrastructure Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Technical lead for DLI 1, 2, and 6 verification and asset functionality.',
+    responsibilities: ['Physical verification', 'Technical audits', 'SWM assessment'],
+  },
+  {
+    role: 'Environment & Social Management Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 6,
+    description: 'Lead for quarterly E&S monitoring and safeguard compliance.',
+    responsibilities: ['ESCF review', 'Safeguard monitoring', 'Compliance reporting'],
+  },
+  {
+    role: 'Finance & Account Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Verification of DLI 5 revenue growth and financial governance.',
+    responsibilities: ['Revenue validation', 'Financial audit review', 'Tariff analysis'],
+  },
+  {
+    role: 'Institutional Strengthening Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Lead for MACs, PMs, and governance performance review.',
+    responsibilities: ['MAC compliance', 'Institutional scoring', 'Governance review'],
+  },
+  {
+    role: 'Social Development Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 6,
+    description: 'Lead for consultations, GRM, and social safeguard compliance.',
+    responsibilities: ['GRM assessment', 'Stakeholder engagement', 'Social audits'],
+  },
+  {
+    role: 'Occupational Health and Safety Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 6,
+    description: 'Monitoring of site safety and worker compliance standards.',
+    responsibilities: ['Site safety audits', 'OHS training review', 'Incident tracking'],
+  },
+  {
+    role: 'Gender Specialist',
+    category: 'Key',
+    count: 1,
+    personMonths: 6,
+    description: 'Ensuring gender-responsive compliance across all project activities.',
+    responsibilities: ['Gender audits', 'Inclusion monitoring', 'Gender-disaggregated data'],
+  },
+  {
+    role: 'Assistant Team Member (Infrastructure)',
+    category: 'Non-Key',
+    count: 2,
+    personMonths: 5,
+    description: 'Support for site verification, engineering evidence checks, and DLI-1 infrastructure validation.',
+    responsibilities: ['Field support', 'Asset verification logs', 'Site documentation'],
+  },
+  {
+    role: 'Assistant Team Member (Environment & Social)',
+    category: 'Non-Key',
+    count: 1,
+    personMonths: 6,
+    description: 'Support for TPM site visits, safeguards evidence compilation, and quarterly compliance reporting.',
+    responsibilities: ['TPM field support', 'Safeguards documentation', 'Issue tracking'],
+  },
+  {
+    role: 'Assistant Team Member (Finance & Accounts)',
+    category: 'Non-Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Support for audited statement reconciliation and revenue evidence logs for DLI-5.',
+    responsibilities: ['Ledger support', 'Revenue reconciliations', 'Working papers'],
+  },
+  {
+    role: 'Assistant Team Member (Institutional Strengthening)',
+    category: 'Non-Key',
+    count: 1,
+    personMonths: 2.5,
+    description: 'Support for MAC/PM documentation checks and institutional compliance records.',
+    responsibilities: ['Compliance evidence', 'Scoring support', 'Institutional records review'],
+  },
+];
+
+export const INSTRUMENTS: Instrument[] = [
+  { title: 'DLI verification sheets', icon: 'FileCheck' },
+  { title: 'Field inspection checklists', icon: 'ClipboardList' },
+  { title: 'Household verification forms', icon: 'Home' },
+  { title: 'Water test recording formats', icon: 'Droplets' },
+  { title: 'MAC compliance tools', icon: 'ShieldCheck' },
+  { title: 'PM scoring matrices', icon: 'BarChart3' },
+  { title: 'Financial templates', icon: 'Calculator' },
+  { title: 'E&S assessment formats', icon: 'Leaf' },
+  { title: 'Evidence registers', icon: 'Database' },
+  { title: 'Reporting templates', icon: 'FileText' },
+];
+
+export const OUTPUTS: Output[] = [
+  { title: 'Inception Report (IVA + E&S TPM)', description: 'Consultant understanding, tools, approach, and work plan.', timeline: 'By 1st week after contract signing', hardCopy: true, softCopy: true },
+  { title: 'Draft E&S TPM Quarterly Reports (4/year)', description: 'Quarterly findings, compliance status, and recommendations.', timeline: 'Within 15 days after each quarter', hardCopy: true, softCopy: true },
+  { title: 'Final E&S TPM Quarterly Reports', description: 'Revised quarterly reports after PMDFC/World Bank comments.', timeline: 'Within 15 days of receiving comments', hardCopy: true, softCopy: true },
+  { title: 'Draft IVA Reports (1st, 2nd, 3rd drafts)', description: 'Annual DLI/MAC/PM verification reports with comment reconciliation.', timeline: '2nd week Mar, 4th week Mar, 2nd week Apr', hardCopy: true, softCopy: true },
+  { title: 'Final IVA Report + Synthesis', description: 'Final assessment for each MC and synthesis report with disbursement implications.', timeline: '1st week of May', hardCopy: true, softCopy: true },
+  { title: 'E&S TPM Completion Report', description: 'Year-end consolidated E&S performance and corrective action closure status.', timeline: 'Within 20 days after completion of last quarter', hardCopy: true, softCopy: true },
+];
+
+export const TOR_COMPLIANCE: TorComplianceItem[] = [
+  {
+    torRequirement: 'Coverage of 16 participating ULGs with PPP focus in Kasur and Chakwal',
+    implementation: 'City module includes all 16 ULGs with explicit PPP highlighting for DLI-6 context.',
+  },
+  {
+    torRequirement: 'Independent verification of DLIs 1-6, including MAC/PM logic',
+    implementation: 'DLI module defines evidence sources, field validation flags, outputs, and assigned expert roles.',
+  },
+  {
+    torRequirement: 'Quarterly E&S TPM under PforR and IPF, including ESCF and safeguards checks',
+    implementation: 'Quarterly cycle module includes ESCF, ESIA/ESMP/RAP, consultations, GRM, and compliance classification.',
+  },
+  {
+    torRequirement: 'Annual APA cycle aligned with Nov-Apr verification and budget timing',
+    implementation: 'Timeline and annual cycle modules reflect APA window and draft/final report sequencing.',
+  },
+  {
+    torRequirement: 'TOR-consistent staffing profile with key and non-key experts',
+    implementation: 'Team module includes both key and non-key staffing with counts and person-month allocations.',
+  },
+  {
+    torRequirement: 'Defined deliverables with timelines and hard/soft copy requirements',
+    implementation: 'Output module maps inception, quarterly TPM, draft/final IVA, and completion report timelines.',
+  },
+];
