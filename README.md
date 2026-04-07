@@ -1,20 +1,19 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# PICP Consultancy Proposal Web Presentation
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/ddfb2aaf-4e6e-473a-9506-149ecc87e3f1
+This repository contains a React + Vite web presentation for the Punjab Inclusive Cities Program (PICP) consultancy methodology.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js (LTS recommended)
 
+1. Install dependencies: `npm install`
+2. Start development server: `npm run dev`
+3. Build production bundle: `npm run build`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Project Structure
+
+- `src/App.tsx` - main presentation composition
+- `src/constants.ts` - TOR-aligned content model and data
+- `src/components/UI.tsx` - reusable UI components
+- `PICP_Methodology_Presentation Updated_Revised.pptx` - revised presentation deck
+- `TOR.pdf` - source Terms of Reference document
