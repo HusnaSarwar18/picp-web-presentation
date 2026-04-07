@@ -462,6 +462,7 @@ const EvidenceTriangulation = () => (
 );
 
 const VerificationTools = () => {
+  const [activeTool, setActiveTool] = useState(INSTRUMENTS[0]);
   const iconMap: Record<string, any> = {
     FileCheck, ClipboardList, Home, Droplets, ShieldCheck, BarChart3, Calculator, Leaf, Database, FileText
   };
@@ -479,7 +480,12 @@ const VerificationTools = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
             >
-              <Card className="flex flex-col items-center text-center p-6 h-full group">
+              <Card
+                onClick={() => setActiveTool(tool)}
+                className={`flex flex-col items-center text-center p-6 h-full group cursor-pointer transition-all ${
+                  activeTool.title === tool.title ? 'border-accent shadow-lg shadow-accent/10' : ''
+                }`}
+              >
                 <div className="w-12 h-12 bg-accent-soft rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
                   <Icon className="text-accent w-6 h-6" />
                 </div>
@@ -488,6 +494,37 @@ const VerificationTools = () => {
             </motion.div>
           );
         })}
+      </div>
+
+      <div className="mt-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTool.title}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10"
+          >
+            <div className="flex items-start justify-between gap-4 flex-col md:flex-row">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-accent mb-2">Selected Instrument Template</p>
+                <h3 className="text-2xl font-bold mb-3">{activeTool.templateTitle}</h3>
+                <p className="text-slate-600">{activeTool.objective}</p>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold uppercase tracking-wider">
+                {activeTool.title}
+              </span>
+            </div>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+              {activeTool.sections.map((section) => (
+                <div key={section} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="w-2 h-2 rounded-full bg-accent" />
+                  <span className="text-sm text-slate-700">{section}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </Section>
   );

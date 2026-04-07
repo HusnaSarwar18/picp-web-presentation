@@ -32,6 +32,9 @@ export interface TeamMember {
 export interface Instrument {
   title: string;
   icon: string;
+  templateTitle: string;
+  objective: string;
+  sections: string[];
 }
 
 export interface Output {

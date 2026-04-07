@@ -234,16 +234,76 @@ export const TEAM: TeamMember[] = [
 ];
 
 export const INSTRUMENTS: Instrument[] = [
-  { title: 'DLI verification sheets', icon: 'FileCheck' },
-  { title: 'Field inspection checklists', icon: 'ClipboardList' },
-  { title: 'Household verification forms', icon: 'Home' },
-  { title: 'Water test recording formats', icon: 'Droplets' },
-  { title: 'MAC compliance tools', icon: 'ShieldCheck' },
-  { title: 'PM scoring matrices', icon: 'BarChart3' },
-  { title: 'Financial templates', icon: 'Calculator' },
-  { title: 'E&S assessment formats', icon: 'Leaf' },
-  { title: 'Evidence registers', icon: 'Database' },
-  { title: 'Reporting templates', icon: 'FileText' },
+  {
+    title: 'DLI verification sheets',
+    icon: 'FileCheck',
+    templateTitle: 'Template: DLI Verification Sheet',
+    objective: 'Capture DLI-wise verification status with evidence references and assessment remarks.',
+    sections: ['DLI/DLR reference', 'Data source and period', 'Verification method used', 'Evidence file references', 'Assessment outcome (Achieved/Partial/Not achieved)', 'Verifier remarks and sign-off'],
+  },
+  {
+    title: 'Field inspection checklists',
+    icon: 'ClipboardList',
+    templateTitle: 'Template: Field Inspection Checklist',
+    objective: 'Standardize site inspection and spot-check observations across all ULGs.',
+    sections: ['Site identification and location', 'Inspection date and team', 'Physical status observations', 'Compliance/non-compliance points', 'Photo/geo-tag reference IDs', 'Corrective action notes'],
+  },
+  {
+    title: 'Household verification forms',
+    icon: 'Home',
+    templateTitle: 'Template: Household Verification Form',
+    objective: 'Validate connection-level service delivery claims through sampled household checks.',
+    sections: ['Household sample ID', 'Connection type (water/sewerage)', 'Installation functionality status', 'Beneficiary confirmation', 'Service quality feedback', 'Enumerator verification and timestamp'],
+  },
+  {
+    title: 'Water test recording formats',
+    icon: 'Droplets',
+    templateTitle: 'Template: Water/Wastewater Test Record',
+    objective: 'Record quality testing details and compare results against applicable standards.',
+    sections: ['Sample point details', 'Testing parameter list', 'Measured values', 'Reference standard threshold', 'Pass/fail result', 'Lab/field technician sign-off'],
+  },
+  {
+    title: 'MAC compliance tools',
+    icon: 'ShieldCheck',
+    templateTitle: 'Template: MAC Compliance Assessment',
+    objective: 'Assess mandatory conditions for ULG eligibility under relevant DLIs.',
+    sections: ['MAC criterion ID', 'Required documentary proof', 'Field verification note', 'Compliance decision', 'Gap and risk note', 'Recommended follow-up action'],
+  },
+  {
+    title: 'PM scoring matrices',
+    icon: 'BarChart3',
+    templateTitle: 'Template: PM Scoring Matrix',
+    objective: 'Score performance measures with transparent point allocation and calculation notes.',
+    sections: ['Performance measure', 'Maximum points', 'Evidence summary', 'Awarded score', 'Scoring rationale', 'Reviewer validation'],
+  },
+  {
+    title: 'Financial templates',
+    icon: 'Calculator',
+    templateTitle: 'Template: Revenue Verification Worksheet',
+    objective: 'Validate FY baseline and current-year revenue movements for DLI-5 assessment.',
+    sections: ['Revenue head classification', 'Baseline (FY 23-24)', 'Current year audited value', 'Variance and percentage change', 'Source document reference', 'Finance specialist remarks'],
+  },
+  {
+    title: 'E&S assessment formats',
+    icon: 'Leaf',
+    templateTitle: 'Template: E&S Compliance Assessment Form',
+    objective: 'Track safeguards compliance, implementation quality, and required corrective actions.',
+    sections: ['Scheme and safeguard instrument type', 'ESCF requirement mapping', 'Field compliance status', 'Stakeholder/GRM observations', 'Issue severity classification', 'Corrective action timeline'],
+  },
+  {
+    title: 'Evidence registers',
+    icon: 'Database',
+    templateTitle: 'Template: Evidence Register',
+    objective: 'Maintain a complete audit trail of files, photos, records, and verification references.',
+    sections: ['Evidence ID', 'Evidence type', 'Linked DLI/MAC/PM', 'File location/link', 'Collection date', 'Verification status'],
+  },
+  {
+    title: 'Reporting templates',
+    icon: 'FileText',
+    templateTitle: 'Template: Reporting Pack Structure',
+    objective: 'Ensure consistent structure across draft/final IVA and quarterly TPM submissions.',
+    sections: ['Executive summary', 'Methodology and sampling', 'Findings and compliance status', 'Scoring/disbursement implications', 'Recommendations and actions', 'Annexes and evidence index'],
+  },
 ];
 
 export const OUTPUTS: Output[] = [
